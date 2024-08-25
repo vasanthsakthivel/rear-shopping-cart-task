@@ -1,35 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Card from './components/Card.jsx';
+import './app.css';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ const price = [
+  {
+    title: "FREE",
+    price: "0/month",
+    feature: [
+      { name: "Single User", enabled: true},
+      { name: "50GB Storage", enabled: true},
+      { name: "Unlimited Public Projects", enabled: true},
+      { name: "Community Access", enabled: true},
+      { name: "Unlimited Private Projects", enabled: false},
+      { name: "Dedicated Phone Support", enabled: false},
+      { name: "Free subdomain", enabled: false},
+      { name: "Monthly Status Report", enabled: false},
+    ],
+    buttonlabel: "BUTTON"
+  },
+  {
+    title: "PLUS",
+    price: "$9/month",
+    feature: [
+      { name: "5 Users", enabled: true},
+      { name: "50GB Storage", enabled: true},
+      { name: "Unlimited Public Projects", enabled: true},
+      { name: "Community Access", enabled: true},
+      { name: "Unlimited Private Projects", enabled: true},
+      { name: "Dedicated Phone Support", enabled: true},
+      { name: "Free subdomain", enabled: true},
+      { name: "Monthly Status Report", enabled: false},
+    ],
+    buttonlabel: "BUTTON"
+  },
+  {
+    title: "PLUS",
+    price: "$49/month",
+    feature: [
+      { name: "5 Users", enabled: true},
+      { name: "50GB Storage", enabled: true},
+      { name: "Unlimited Public Projects", enabled: true},
+      { name: "Community Access", enabled: true},
+      { name: "Unlimited Private Projects", enabled: true},
+      { name: "Dedicated Phone Support", enabled: true},
+      { name: "Free subdomain", enabled: true},
+      { name: "Monthly Status Report", enabled: true},
+    ],
+    buttonlabel: "BUTTON"
+  },
+ ];
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <div className='pricing-container'>
+        {price.map((option, index) => (
+          <Card 
+          key={index}
+          title={option.title}
+          price={option.price}
+          feature={option.feature}
+          buttonlabel={option.buttonlabel}
+          />
+        ))
+        }
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
+export default App;
 
-export default App
