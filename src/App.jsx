@@ -1,5 +1,5 @@
 import Card from './components/Card.jsx';
-import './app.css';
+import './App.css';
 
 
 
